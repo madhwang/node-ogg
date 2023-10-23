@@ -401,7 +401,7 @@ NAN_MODULE_INIT(Initialize) {
 
   /* sizeof's */
 #define SIZEOF(value) \
-  Nan::ForceSet(target, Nan::New<String>("sizeof_" #value).ToLocalChecked(), \
+  Nan::DefineOwnProperty(target, Nan::New<String>("sizeof_" #value).ToLocalChecked(), \
       Nan::New<Integer>(static_cast<int32_t>(sizeof(value))), \
       static_cast<PropertyAttribute>(ReadOnly|DontDelete))
   SIZEOF(ogg_sync_state);
